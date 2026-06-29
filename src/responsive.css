@@ -1,0 +1,171 @@
+/* ===========================================================
+   Responsive overrides — mobile breakpoints only.
+   Desktop styles (inline in components) are untouched.
+   Targets sections by ID; uses !important to override inline styles.
+   =========================================================== */
+
+/* ---------- Tablet & below (<= 900px) ---------- */
+@media (max-width: 900px) {
+  /* About: 2-col -> 1-col, center the profile column */
+  #about > div > div:last-child {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+  }
+
+  /* Experience: timeline + achievements -> 1-col */
+  #experience > div > div:last-child {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  /* Education: 2-col -> 1-col */
+  #education > div > div:last-child {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  /* Contact: info + form -> 1-col */
+  #contact > div > div:nth-child(3) {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  /* Skills cards already auto-fit, just tighten gap */
+  #skills > div > div:nth-child(3) {
+    gap: 1rem !important;
+  }
+}
+
+/* ---------- Mobile (<= 600px) ---------- */
+@media (max-width: 600px) {
+  /* Reduce section padding on all sections */
+  #about,
+  #experience,
+  #education,
+  #skills {
+    padding: 5rem 1.25rem !important;
+  }
+  #contact {
+    padding: 5rem 1.25rem 4rem !important;
+  }
+
+  /* About: shrink heading margin, profile photo, info card */
+  #about > div > div:first-child {
+    margin-bottom: 2.5rem !important;
+  }
+  #about > div > div:last-child > div:first-child > div:first-child > div:last-child {
+    width: 170px !important;
+    height: 170px !important;
+  }
+  #about > div > div:last-child > div:first-child > div:last-child {
+    padding: 1.25rem !important;
+  }
+
+  /* About stats: 4-col -> 2-col */
+  #about > div > div:last-child > div:last-child > div:nth-last-child(2) {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.75rem !important;
+  }
+
+  /* About heading font */
+  #about h2,
+  #experience h2,
+  #education h2,
+  #skills h2,
+  #contact h2 {
+    font-size: 1.7rem !important;
+  }
+
+  /* About right-column heading */
+  #about h3 {
+    font-size: 1.35rem !important;
+  }
+
+  /* Experience: reduce timeline left padding */
+  #experience > div > div:last-child > div:first-child {
+    padding-left: 1.75rem !important;
+  }
+  #experience > div > div:last-child > div:first-child > .glass {
+    padding: 1.5rem !important;
+  }
+  #experience > div > div:last-child > div:first-child > .glass > div:first-child {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.75rem !important;
+  }
+
+  /* Experience achievement cards */
+  #experience > div > div:last-child > div:last-child > .glass {
+    padding: 1.1rem !important;
+  }
+
+  /* Education card padding */
+  #education > div > div:last-child > div:first-child {
+    padding: 1.5rem !important;
+  }
+  /* Education subjects grid: 2-col -> 1-col */
+  #education > div > div:last-child > div:last-child > div:first-child > div:last-child {
+    grid-template-columns: 1fr !important;
+  }
+  /* Education glass cards */
+  #education > div > div:last-child > div:last-child > div {
+    padding: 1.5rem !important;
+  }
+
+  /* Skills cards padding */
+  #skills .glass {
+    padding: 1.25rem !important;
+  }
+
+  /* Contact form fields: 2-col -> 1-col */
+  #contact > div > div:nth-child(3) > div:last-child > .glass {
+    padding: 1.5rem !important;
+  }
+  #contact > div > div:nth-child(3) > div:last-child > .glass > form > div:first-child {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  /* Contact submit button: full width */
+  #contact > div > div:nth-child(3) > div:last-child > .glass > form > button {
+    align-self: stretch !important;
+    justify-content: center !important;
+  }
+
+  /* Contact footer margin */
+  #contact > div > div:last-child {
+    margin-top: 3rem !important;
+    padding-top: 1.5rem !important;
+  }
+
+  /* Tags: slightly smaller on mobile */
+  .tag {
+    font-size: 0.68rem !important;
+    padding: 4px 10px !important;
+  }
+}
+
+/* ---------- Small mobile (<= 380px) ---------- */
+@media (max-width: 380px) {
+  #about,
+  #experience,
+  #education,
+  #skills {
+    padding: 4rem 1rem !important;
+  }
+  #contact {
+    padding: 4rem 1rem 3rem !important;
+  }
+
+  /* About stats: 1-col on very small screens */
+  #about > div > div:last-child > div:last-child > div:nth-last-child(2) {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  /* Contact social icons: smaller */
+  #contact > div > div:nth-child(3) > div:first-child > div:last-child > div:last-child > a {
+    width: 38px !important;
+    height: 38px !important;
+  }
+}
+ 
