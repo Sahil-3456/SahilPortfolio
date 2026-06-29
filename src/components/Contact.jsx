@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { supabase } from '../supabaseClient'
+import profile from "../assets/profile.jpeg";
 
 const contactItems = [
   { icon: '✉', label: 'Email', value: 'sahildhoke564@email.com', href: 'mailto:sahildhoke564@email.com' },
@@ -222,7 +223,7 @@ const [loading, setLoading] = useState(false)
         >
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', marginBottom: '0.75rem' }}>
             <div style={{ width: '30px', height: '30px', borderRadius: '50%', background: 'linear-gradient(135deg,#00d4ff,#0077b6)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '800', fontSize: '0.75rem', color: '#050816', fontFamily: "'JetBrains Mono',monospace" }}><img
-                  src="profile.jpeg"
+                  src={profile}
                   style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', borderRadius: '50%' }}
                   /></div>
             <span style={{ fontWeight: '700', color: '#e8eaf6', fontSize: '0.95rem' }}>Sahil Dhoke</span>

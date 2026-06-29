@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import profile from "../assets/profile.jpeg";
 
 const fade = (delay = 0) => ({
   initial: { opacity: 0, y: 24 },
@@ -64,7 +65,7 @@ export default function About() {
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
               }}>
                 <img
-                  src="profile.jpeg"
+                  src={profile}
                   alt="Sahil Dhoke"
                   style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }}
                   onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.nextSibling.style.display = 'flex' }}

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import profile from "../assets/profile.jpeg";
 
 const links = [
   { label: 'About', href: '#about' },
@@ -43,7 +44,7 @@ export default function Navbar() {
           fontWeight: '800', fontSize: '0.85rem', color: '#050816',
           fontFamily: "'JetBrains Mono',monospace",
         }}><img
-                  src="profile.jpeg"
+                  src={profile}
                   style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', borderRadius: '50%' }}
                   /></div>  
         <span style={{ fontWeight: '700', fontSize: '1.05rem', color: '#e8eaf6', letterSpacing: '-0.02em' }}>
