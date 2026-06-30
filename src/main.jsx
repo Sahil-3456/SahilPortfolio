@@ -2,6 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
+import './responsive.css'
 
 // 1. Import the supabase client you just created
 import { supabase } from './supabaseClient.js'

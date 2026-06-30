@@ -78,7 +78,7 @@ function Card({ project: p, index, inView }) {
         background: hov ? 'rgba(255,255,255,0.055)' : 'rgba(255,255,255,0.028)',
         border: `1px solid ${hov ? p.color + '55' : 'rgba(255,255,255,0.075)'}`,
         borderRadius: '18px',
-        padding: '2rem',
+        padding: window.innerWidth <= 768 ? "1.2rem" : "2rem",
         transition: 'all 0.32s ease',
         transform: hov ? 'translateY(-6px)' : 'none',
         boxShadow: hov ? `0 24px 52px ${p.color}12` : 'none',
@@ -103,7 +103,9 @@ function Card({ project: p, index, inView }) {
           }}>{p.icon}</div>
           <div>
             <div style={{ fontSize: '0.68rem', color: p.color, fontFamily: "'JetBrains Mono',monospace", letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: '600' }}>{p.category}</div>
-            <h3 style={{ fontSize: '1.05rem', fontWeight: '700', color: '#e8eaf6', letterSpacing: '-0.02em', lineHeight: 1.3 }}>{p.title}</h3>
+            <h3
+  style={{
+    fontSize: window.innerWidth <= 768 ? "0.95rem" : "1.05rem", fontWeight: '700', color: '#e8eaf6', letterSpacing: '-0.02em', lineHeight: 1.3 }}>{p.title}</h3>
           </div>
         </div>
         <span style={{
@@ -113,7 +115,9 @@ function Card({ project: p, index, inView }) {
         }}>{p.year}</span>
       </div>
 
-      <p style={{ fontSize: '0.875rem', color: '#78909c', lineHeight: '1.7' }}>{p.desc}</p>
+      <p
+  style={{
+    fontSize: window.innerWidth <= 768 ? "0.8rem" : "0.875rem", color: '#78909c', lineHeight: '1.7' }}>{p.desc}</p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.45rem' }}>
         {p.points.map(pt => (
@@ -121,7 +125,9 @@ function Card({ project: p, index, inView }) {
             <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke={p.color} strokeWidth="2.5" style={{ marginTop: '4px', flexShrink: 0 }}>
               <polyline points="9 18 15 12 9 6"/>
             </svg>
-            <span style={{ fontSize: '0.8rem', color: '#90a4ae', lineHeight: 1.55 }}>{pt}</span>
+            <span
+  style={{
+    fontSize: window.innerWidth <= 768 ? "0.75rem" : "0.8rem", color: '#90a4ae', lineHeight: 1.55 }}>{pt}</span>
           </div>
         ))}
       </div>
@@ -161,7 +167,17 @@ export default function Projects() {
           </p>
         </motion.div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(460px,1fr))', gap: '1.4rem' }}>
+        <div
+        className="projects-grid"
+  style={{
+    display: "grid",
+    gridTemplateColumns:
+      window.innerWidth <= 768
+        ? "1fr"
+        : "repeat(auto-fit, minmax(460px, 1fr))",
+    gap: window.innerWidth <= 768 ? "1rem" : "1.4rem",
+  }}
+>
           {projects.map((p, i) => <Card key={p.title} project={p} index={i} inView={inView} />)}
         </div>
       </div>

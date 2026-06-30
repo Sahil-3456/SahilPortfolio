@@ -24,6 +24,14 @@
     gap: 2rem !important;
   }
 
+  /* Projects: Multi-column to 1-column layout mapping */
+  #projects > div > div:last-child {
+    grid-template-columns: 1fr !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+  }
+
   /* Contact: info + form -> 1-col */
   #contact > div > div:nth-child(3) {
     grid-template-columns: 1fr !important;
@@ -42,7 +50,8 @@
   #about,
   #experience,
   #education,
-  #skills {
+  #skills,
+  #projects {
     padding: 5rem 1.25rem !important;
   }
   #contact {
@@ -50,7 +59,8 @@
   }
 
   /* About: shrink heading margin, profile photo, info card */
-  #about > div > div:first-child {
+  #about > div > div:first-child,
+  #projects > div > div:first-child {
     margin-bottom: 2.5rem !important;
   }
   #about > div > div:last-child > div:first-child > div:first-child > div:last-child {
@@ -72,12 +82,14 @@
   #experience h2,
   #education h2,
   #skills h2,
-  #contact h2 {
+  #contact h2,
+  #projects h2 {
     font-size: 1.7rem !important;
   }
 
   /* About right-column heading */
-  #about h3 {
+  #about h3,
+  #projects h3 {
     font-size: 1.35rem !important;
   }
 
@@ -117,6 +129,33 @@
     padding: 1.25rem !important;
   }
 
+  /* Projects card layout and grid overrides on mobile */
+  #projects .projects-grid,
+  #projects [class*="grid"],
+  #projects > div > div:last-child {
+    grid-template-columns: 1fr !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+  }
+
+  #projects .project-card, 
+  #projects .glass,
+  #projects > div > div:last-child > div {
+    padding: 1.25rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  #projects .project-title {
+    font-size: 1rem !important;
+  }
+
+  #projects .project-desc,
+  #projects .project-point {
+    font-size: 0.8rem !important;
+  }
+
   /* Contact form fields: 2-col -> 1-col */
   #contact > div > div:nth-child(3) > div:last-child > .glass {
     padding: 1.5rem !important;
@@ -150,11 +189,16 @@
   #about,
   #experience,
   #education,
-  #skills {
+  #skills,
+  #projects {
     padding: 4rem 1rem !important;
   }
   #contact {
     padding: 4rem 1rem 3rem !important;
+  }
+
+  #projects h2 {
+    font-size: 1.5rem !important;
   }
 
   /* About stats: 1-col on very small screens */
@@ -168,4 +212,51 @@
     height: 38px !important;
   }
 }
- 
+@media (max-width: 768px) {
+  /* 1. Force the cards to shrink dynamically instead of keeping fixed widths */
+  #projects .project-card,
+  #projects .glass,
+  #projects > div > div:last-child > div {
+    width: 100% !important;        /* Let it fill the mobile screen width */
+    max-width: 100% !important;    /* Block any fixed pixel limits over 100% */
+    min-width: 0 !important;        /* Allow flex/grid items to shrink below their content size */
+    box-sizing: border-box !important; /* Forces padding to stay inside the width boundary */
+  }
+
+  /* 2. Prevent code snippets, links, or text from stretching the card */
+  #projects .project-card *,
+  #projects .glass * {
+    max-width: 100% !important;
+    word-break: break-word !important; /* Wraps long URLs or text lines onto a new line */
+    white-space: normal !important;    /* Prevents code/text from forcing a single horizontal line */
+  }
+}
+
+/* Projects Section */
+/* @media (max-width: 768px) {
+  #projects {
+    padding: 5rem 1rem !important;
+  }
+
+  #projects .projects-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  #projects h2 {
+    font-size: 2rem !important;
+  }
+
+  #projects .project-card {
+    padding: 1.2rem !important;
+  }
+
+  #projects .project-title {
+    font-size: 1rem !important;
+  }
+
+  #projects .project-desc,
+  #projects .project-point {
+    font-size: 0.8rem !important;
+  }
+} */
